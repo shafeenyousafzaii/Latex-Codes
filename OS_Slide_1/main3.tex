@@ -1,0 +1,115 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{enumitem}
+\usepackage{hyperref}
+
+\title{Summary of Chapter 3: Processes}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section{Chapter 3: Processes}
+This chapter discusses the concept of processes, process scheduling, interprocess communication (IPC), and client-server communication systems.
+
+\section{Objectives}
+The key goals are:
+\begin{itemize}
+    \item To introduce the concept of a process—a program in execution.
+    \item To describe features of processes, including scheduling, creation, termination, and communication.
+    \item To explore interprocess communication using shared memory and message passing.
+    \item To describe communication in client-server systems.
+\end{itemize}
+
+\section{Process Concept}
+A process is a program in execution. It includes:
+\begin{itemize}
+    \item \textbf{Text Section}: Executable code.
+    \item \textbf{Program Counter}: Current activity and processor registers.
+    \item \textbf{Stack}: Temporary data (e.g., function parameters, return addresses).
+    \item \textbf{Data Section}: Global variables.
+    \item \textbf{Heap}: Dynamic memory.
+\end{itemize}
+
+Processes differ from programs, as one program can be executed as multiple processes.
+
+\section{Process State}
+A process can be in one of several states:
+\begin{itemize}
+    \item \textbf{New}: The process is being created.
+    \item \textbf{Running}: Instructions are being executed.
+    \item \textbf{Waiting}: The process is waiting for an event.
+    \item \textbf{Ready}: The process is ready to be assigned to the CPU.
+\end{itemize}
+
+\section{Process Control Block (PCB)}
+The PCB contains information associated with a specific process, including:
+\begin{itemize}
+    \item Process state.
+    \item Program counter.
+    \item CPU registers.
+    \item Scheduling and memory management info.
+    \item I/O status.
+\end{itemize}
+
+\section{Process Scheduling}
+The process scheduler selects which process should execute next:
+\begin{itemize}
+    \item \textbf{Job Queue}: All processes in the system.
+    \item \textbf{Ready Queue}: Processes ready to execute.
+    \item \textbf{Device Queue}: Processes waiting for I/O.
+\end{itemize}
+
+Schedulers:
+\begin{itemize}
+    \item \textbf{Short-term scheduler (CPU scheduler)} selects processes for execution.
+    \item \textbf{Long-term scheduler (job scheduler)} controls the degree of multiprogramming by determining which processes are brought into the ready queue.
+\end{itemize}
+
+\section{Context Switch}
+When switching processes, the system must save the current process state and load the saved state of the new process. This is called a \textbf{context switch}, and it introduces overhead since the CPU isn't doing useful work during the switch.
+
+\section{Operations on Processes}
+The OS must support various operations on processes, such as:
+\begin{itemize}
+    \item \textbf{Process Creation}: Parent processes create children, forming a tree of processes. UNIX uses the \texttt{fork()} system call.
+    \item \textbf{Process Termination}: Processes terminate by invoking \texttt{exit()}, and resources are deallocated. Parent processes may wait for children to terminate.
+\end{itemize}
+
+\section{Interprocess Communication (IPC)}
+Processes may need to communicate with each other:
+\begin{itemize}
+    \item \textbf{Cooperating processes} share data and resources.
+    \item IPC models include:
+    \begin{itemize}
+        \item \textbf{Shared Memory}: Processes share a portion of memory.
+        \item \textbf{Message Passing}: Processes send and receive messages.
+    \end{itemize}
+\end{itemize}
+
+\section{Message Passing}
+Messages are passed between processes via communication links:
+\begin{itemize}
+    \item \textbf{Direct Communication}: Processes must explicitly name each other.
+    \item \textbf{Indirect Communication}: Processes use mailboxes (ports) to send and receive messages.
+    \item \textbf{Synchronization}: Message passing can be blocking (synchronous) or non-blocking (asynchronous).
+\end{itemize}
+
+\section{Buffering}
+Messages are stored in queues:
+\begin{itemize}
+    \item \textbf{Zero Capacity}: Sender must wait for the receiver.
+    \item \textbf{Bounded Capacity}: Finite queue size, sender waits if the queue is full.
+    \item \textbf{Unbounded Capacity}: Infinite queue size, sender never waits.
+\end{itemize}
+
+\section{Communication in Client-Server Systems}
+\begin{itemize}
+    \item \textbf{Sockets}: Endpoint for communication, identified by IP address and port number.
+    \item \textbf{Pipes}: Communication channels between processes. Named pipes allow communication between unrelated processes, whereas ordinary pipes require a parent-child relationship.
+\end{itemize}
+
+This chapter lays the foundation for understanding process management and communication, essential components of modern operating systems.
+
+\end{document}

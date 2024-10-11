@@ -1,0 +1,36 @@
+\documentclass[12pt]{article}
+\usepackage{geometry}
+\geometry{a4paper, margin=1in}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{graphicx}
+
+\title{Day 1}
+\author{Muhammad Shafeen}
+\date{Friday, 12th July}
+
+\begin{document}
+
+\maketitle
+
+\section*{1. Data Search for Kargil}
+On the first day, I focused on searching for a database of Kargil to train our model that will work offline. Finding the data for Kargil posed significant challenges due to the lack of internet access in the region. Additionally, many websites that offered the data were paid, which added to the difficulty.
+
+\subsection*{Challenges Faced}
+The primary difficulties encountered during this process included:
+\begin{itemize}
+    \item Limited availability of free data sources.
+    \item Paid websites restricting access to necessary data.
+    \item The need for an automated solution to scrape data efficiently.
+\end{itemize}
+
+\subsection*{Solution and Process}
+To overcome these obstacles, we implemented a Python script designed to scrape data with an interval of two weeks and a one-minute gap between each request. This method allowed us to gather comprehensive data from 1970 to 2024. The entire scraping process took approximately 10-15 minutes to complete.
+
+\subsubsection*{Python Script Execution}
+The Python script was set up to run with specific intervals to avoid being blocked by websites and to ensure that the data scraping was efficient. This approach proved effective in collecting the required data for our model.
+
+\section*{Conclusion}
+Despite the challenges, the initial data search for Kargil was successful. The collected data will serve as a crucial foundation for training our offline model.
+
+\end{document}

@@ -1,0 +1,147 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{fancyhdr}
+\usepackage{geometry}
+\usepackage{parskip} % Adds spacing between paragraphs for readability
+\usepackage{tcolorbox} % For creating answer boxes
+
+% Page settings
+\geometry{margin=1in}
+\setlength{\parindent}{0pt} % No indentation
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\includegraphics[width=1.5cm]{logo.png}} % Include university logo
+\fancyhead[C]{\textbf{National University of Computer and Emerging Sciences}}
+
+% Adjust header spacing
+\setlength{\headheight}{47.02646pt} % Ensure there is enough space for the header
+\addtolength{\topmargin}{-27.02646pt} % Compensate by reducing the top margin
+
+% Student information
+\newcommand{\studentinfo}{
+    \textbf{Student Name:} \underline{\hspace{4cm}} \hspace{0.5cm}
+    \textbf{Roll No:} \underline{\hspace{3cm}} \hspace{0.5cm} \\
+    \textbf{Section:} \underline{\hspace{2cm}} \\
+}
+
+\begin{document}
+
+% Title
+\begin{center}
+    {\large \textbf{Course: Programming Fundamentals}} \\
+    \vspace{0.2cm}
+    {\Large \textbf{Quiz 2}} \\
+\end{center}
+
+\vspace{0.5cm}
+
+% Student information section
+\studentinfo
+
+\vspace{0.5cm}
+\textbf{Total Time:} 25 minutes \\
+\textbf{Time Distribution:} Q1 - 5 minutes, Q2 (Flowchart) - 5 minutes, Q2 (Code) - 8 minutes, Q3 - 4 minutes, Rechecking - 3 minutes.
+\vspace{0.5cm}
+
+% Question 1
+\textbf{Q1: Write a C++ program to check whether a triangle is Equilateral, Isosceles, or Scalene.} \hfill \textbf{(5 marks)}  \textbf{(CLO-2)}
+
+\vspace{0.5cm}[H]
+- \textbf{Equilateral Triangle:} A triangle in which all three sides are equal. \\
+- \textbf{Isosceles Triangle:} A triangle with two sides of equal length. \\
+- \textbf{Scalene Triangle:} A triangle with three unequal sides. \\
+
+\vspace{0.5cm}
+\textbf{Write your answer here:}
+\begin{tcolorbox}[colframe=black, colback=white, width=\textwidth, height=12cm, valign=center]
+\end{tcolorbox}
+
+\vspace{0.5cm}
+
+% Question 2
+\textbf{Q2: Weather Prediction - Decision to Play Tennis} \hfill \textbf{(5 marks)} \\
+You are provided with the following records of weather conditions and the decision to play tennis:
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+\textbf{Temperature (°F)} & \textbf{Humidity (\%)} & \textbf{Windy (Y/N)} & \textbf{Play Tennis (Y/N)} \\
+\hline
+Above 85 & Medium (M) & No (N) & Yes (Y) \\
+75 - 85 & High (H) & Yes (Y) & No (N) \\
+Below 75 & Low (L) & No (N) & Yes (Y) \\
+\hline
+\end{tabular}
+\end{center}
+
+\textbf{Task:}
+\begin{itemize}
+    \item \textbf{a)} Create a flowchart for the above scenario. \hfill \textbf{(5 marks)} \textbf{(CLO-1)}
+    \item \textbf{b)} Write a C++ program that uses an if-else structure to predict whether to "Play Tennis" or not based on three input values: temperature (°F), humidity (Medium, High, Low), and whether it's windy (Yes/No). \hfill \textbf{(5 marks)} \textbf{(CLO-2)}
+    \begin{itemize}
+        \item Accept input for temperature (°F), humidity (M, H, L), and windy (Y/N).
+        \item Compare the input with the dataset above.
+        \item Output "Y" or "N" based on the conditions provided.
+    \end{itemize}
+\end{itemize}
+
+\textbf{Example:}
+\begin{itemize}
+    \item Input: Temperature = 86, Humidity = M, Windy = N
+    \item Output: Y
+\end{itemize}
+
+\vspace{0.5cm}
+\textbf{Write your answer here:}
+\begin{tcolorbox}[colframe=black, colback=white, width=\textwidth, height=12cm, valign=center]
+\end{tcolorbox}
+
+\vspace{0.5cm}
+
+% Question 3
+\textbf{Q3: Write the output of the following code:} \hfill \textbf{(5 marks)} \textbf{(CLO-1)}
+
+\begin{verbatim}
+#include <iostream>
+#include <iomanip>
+
+using namespace std;
+
+int main() {
+    int num1 = 5 - (17 * 6);  // 0.5 marks
+    int num2 = (5 - 17) * 6;  // 0.5 marks
+    int num3 = 19 + (5 / 2) + 4 % 2 - 6 * 3;  // 1 mark
+
+    cout << "num1 = " << num1 << endl;
+    cout << "num2 = " << num2 << endl;
+    cout << "num3 = " << num3 << endl;
+
+    cout << left << setw(8) << setfill('0') << 256 << endl;  // 1 mark
+    cout << left << setfill('*') << setw(8) << num1 << endl; // 1 mark
+    cout << right << setw(6) << num2 << endl;  // 1 mark
+
+    return 0;
+}
+\end{verbatim}
+
+\vspace{0.5cm}
+\textbf{Write your answer here:}
+\begin{tcolorbox}[colframe=black, colback=white, width=\textwidth, height=6cm, valign=center]
+\end{tcolorbox}
+
+\vspace{0.5cm}
+
+% Answer Section: Half Page
+\newpage
+\textbf{Answer Section:}
+
+\vspace{0.5cm}
+Please use the space below to provide any additional or extended answers.
+
+\begin{tcolorbox}[colframe=black, colback=white, width=\textwidth, height=0.5\textheight, valign=center]
+\end{tcolorbox}
+
+\vspace{0.5cm}
+
+\end{document}

@@ -1,0 +1,296 @@
+\documentclass{article}
+\usepackage{listings}
+\usepackage{color}
+
+\definecolor{lightgray}{gray}{0.9}
+
+\lstset{
+  backgroundcolor=\color{lightgray},
+  basicstyle=\ttfamily,
+  keywordstyle=\color{blue},
+  commentstyle=\color{green},
+  stringstyle=\color{red},
+  showstringspaces=false,
+  frame=single,
+  breaklines=true
+}
+
+\begin{document}
+
+\title{SQL Guide for Teaching and Exam Preparation}
+\author{Database Expert}
+\date{\today}
+\maketitle
+
+\tableofcontents
+\newpage
+
+\section{Creating Tables with Primary Keys and Foreign Keys}
+
+\subsection{Format}
+\begin{lstlisting}[language=SQL]
+CREATE TABLE table_name (
+    column1 datatype PRIMARY KEY,
+    column2 datatype,
+    column3 datatype,
+    ...
+    FOREIGN KEY (column_name) REFERENCES parent_table (column_name)
+);
+\end{lstlisting}
+
+\subsection{Example}
+\begin{lstlisting}[language=SQL]
+CREATE TABLE departments (
+    department_id INT PRIMARY KEY,
+    department_name VARCHAR(100)
+);
+
+CREATE TABLE employees (
+    employee_id INT PRIMARY KEY,
+    employee_name VARCHAR(100),
+    department_id INT,
+    FOREIGN KEY (department_id) REFERENCES departments(department_id)
+);
+\end{lstlisting}
+
+\newpage
+\section{Joins}
+
+\subsection{Inner Join}
+\begin{lstlisting}[language=SQL]
+SELECT columns
+FROM table1
+INNER JOIN table2
+ON table1.column = table2.column;
+\end{lstlisting}
+
+\subsection{Example}
+\begin{lstlisting}[language=SQL]
+SELECT employees.employee_name, departments.department_name
+FROM employees
+INNER JOIN departments
+ON employees.department_id = departments.department_id;
+\end{lstlisting}
+
+\subsection{Left Join}
+\begin{lstlisting}[language=SQL]
+SELECT columns
+FROM table1
+LEFT JOIN table2
+ON table1.column = table2.column;
+\end{lstlisting}
+
+\subsection{Example}
+\begin{lstlisting}[language=SQL]
+SELECT employees.employee_name, departments.department_name
+FROM employees
+LEFT JOIN departments
+ON employees.department_id = departments.department_id;
+\end{lstlisting}
+
+\subsection{Right Join}
+\begin{lstlisting}[language=SQL]
+SELECT columns
+FROM table1
+RIGHT JOIN table2
+ON table1.column = table2.column;
+\end{lstlisting}
+
+\subsection{Example}
+\begin{lstlisting}[language=SQL]
+SELECT employees.employee_name, departments.department_name
+FROM employees
+RIGHT JOIN departments
+ON employees.department_id = departments.department_id;
+\end{lstlisting}
+
+\subsection{Full Outer Join}
+\begin{lstlisting}[language=SQL]
+SELECT columns
+FROM table1
+FULL OUTER JOIN table2
+ON table1.column = table2.column;
+\end{lstlisting}
+
+\subsection{Example}
+\begin{lstlisting}[language=SQL]
+SELECT employees.employee_name, departments.department_name
+FROM employees
+FULL OUTER JOIN departments
+ON employees.department_id = departments.department_id;
+\end{lstlisting}
+
+\newpage
+\section{Subqueries}
+
+\subsection{Format}
+\begin{lstlisting}[language=SQL]
+SELECT columns
+FROM table
+WHERE column = (SELECT column FROM table WHERE condition);
+\end{lstlisting}
+
+\subsection{Example}
+\begin{lstlisting}[language=SQL]
+SELECT employee_name
+FROM employees
+WHERE department_id = (SELECT department_id FROM departments WHERE department_name = 'Sales');
+\end{lstlisting}
+
+\newpage
+\section{Creating Views and SQL Functions}
+
+\subsection{Views}
+
+\subsubsection{Format}
+\begin{lstlisting}[language=SQL]
+CREATE VIEW view_name AS
+SELECT columns
+FROM table
+WHERE condition;
+\end{lstlisting}
+
+\subsubsection{Example}
+\begin{lstlisting}[language=SQL]
+CREATE VIEW sales_employees AS
+SELECT employee_name, department_id
+FROM employees
+WHERE department_id = (SELECT department_id FROM departments WHERE department_name = 'Sales');
+\end{lstlisting}
+
+\subsection{Functions}
+
+\subsubsection{Format}
+\begin{lstlisting}[language=SQL]
+CREATE FUNCTION function_name (parameters)
+RETURNS return_datatype
+AS
+BEGIN
+    -- SQL statements
+    RETURN value;
+END;
+\end{lstlisting}
+
+\subsubsection{Example}
+\begin{lstlisting}[language=SQL]
+CREATE FUNCTION get_department_name (dept_id INT)
+RETURNS VARCHAR(100)
+AS
+BEGIN
+    DECLARE dept_name VARCHAR(100);
+    SELECT department_name INTO dept_name
+    FROM departments
+    WHERE department_id = dept_id;
+    RETURN dept_name;
+END;
+\end{lstlisting}
+
+\newpage
+\section{Creating Triggers}
+
+\subsection{Format}
+\begin{lstlisting}[language=SQL]
+CREATE TRIGGER trigger_name
+AFTER | BEFORE INSERT | UPDATE | DELETE
+ON table_name
+FOR EACH ROW
+BEGIN
+    -- SQL statements
+END;
+\end{lstlisting}
+
+\subsection{Example}
+\begin{lstlisting}[language=SQL]
+CREATE TRIGGER after_employee_insert
+AFTER INSERT
+ON employees
+FOR EACH ROW
+BEGIN
+    INSERT INTO audit_log (action, timestamp)
+    VALUES ('New employee added', NOW());
+END;
+\end{lstlisting}
+
+\newpage
+\section{Creating Procedures}
+
+\subsection{Format}
+\begin{lstlisting}[language=SQL]
+CREATE PROCEDURE procedure_name (parameters)
+BEGIN
+    -- SQL statements
+END;
+\end{lstlisting}
+
+\subsection{Example}
+\begin{lstlisting}[language=SQL]
+CREATE PROCEDURE add_employee (emp_name VARCHAR(100), dept_id INT)
+BEGIN
+    INSERT INTO employees (employee_name, department_id)
+    VALUES (emp_name, dept_id);
+END;
+\end{lstlisting}
+
+\newpage
+\section{DCL (Data Control Language) and TCL (Transaction Control Language)}
+
+\subsection{DCL}
+
+\subsubsection{GRANT}
+\begin{lstlisting}[language=SQL]
+GRANT privilege ON object TO user;
+\end{lstlisting}
+
+\subsubsection{Example}
+\begin{lstlisting}[language=SQL]
+GRANT SELECT ON employees TO 'user1';
+\end{lstlisting}
+
+\subsubsection{REVOKE}
+\begin{lstlisting}[language=SQL]
+REVOKE privilege ON object FROM user;
+\end{lstlisting}
+
+\subsubsection{Example}
+\begin{lstlisting}[language=SQL]
+REVOKE SELECT ON employees FROM 'user1';
+\end{lstlisting}
+
+\subsection{TCL}
+
+\subsubsection{COMMIT}
+\begin{lstlisting}[language=SQL]
+COMMIT;
+\end{lstlisting}
+
+\subsubsection{Example}
+\begin{lstlisting}[language=SQL]
+INSERT INTO employees (employee_name, department_id) VALUES ('John Doe', 1);
+COMMIT;
+\end{lstlisting}
+
+\subsubsection{ROLLBACK}
+\begin{lstlisting}[language=SQL]
+ROLLBACK;
+\end{lstlisting}
+
+\subsubsection{Example}
+\begin{lstlisting}[language=SQL]
+INSERT INTO employees (employee_name, department_id) VALUES ('John Doe', 1);
+ROLLBACK;
+\end{lstlisting}
+
+\subsubsection{SAVEPOINT}
+\begin{lstlisting}[language=SQL]
+SAVEPOINT savepoint_name;
+\end{lstlisting}
+
+\subsubsection{Example}
+\begin{lstlisting}[language=SQL]
+INSERT INTO employees (employee_name, department_id) VALUES ('John Doe', 1);
+SAVEPOINT savepoint1;
+INSERT INTO employees (employee_name, department_id) VALUES ('Jane Smith', 2);
+ROLLBACK TO savepoint1;
+\end{lstlisting}
+
+\end{document}

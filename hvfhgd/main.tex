@@ -1,0 +1,229 @@
+%-------------------------
+% Resume in Latex
+% Author: Bekir Khan
+% Based off of: https://github.com/sb2nov/resume
+% License: MIT
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\input{glyphtounicode}
+\usepackage{soul}
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-5pt}\scshape\raggedright\Large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-0.5pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-7pt}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%----------HEADING----------
+\begin{center}
+    \textbf{\Huge \scshape Muhammad Moin Khan} \\ \vspace{1pt}
+    \small +92 3358299315 $|$ \href{mailto:moin.m.khan99@gmail.com}{moin.m.khan99@gmail.com} $|$
+    \href{https://www.linkedin.com/in/moinmkhan/}{LinkedIn} $|$ Islamabad, Pakistan
+\end{center}
+
+%-----------EXPERIENCE-----------
+\section{Experience}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Associate Network Engineer}{Jul. 2023 -- Present}
+      {Tech Avenue Pvt. Ltd}{Islamabad, Pakistan}
+      \resumeItemListStart
+        \resumeItem{Acquired knowledge in Networks and Security operations.}
+        \resumeItem{Completed training on Kaspersky Security Center (KSC) and Kaspersky Endpoint Security for Business.}
+        \resumeItem{Trained in deploying Kaspersky Security Center Server for efficient system management.}
+        \resumeItem{Managed protection policies in C4i, utilizing Kaspersky solutions for robust cybersecurity.}
+        \resumeItem{Served as a dedicated Response Engineer (RE) at C4i, handling various tasks related to Kaspersky security solutions.}
+        \resumeItem{Resolved routine issues with the already deployed Kaspersky Endpoint Security for Business at C4i.}
+        \resumeItem{Downloaded and uploaded updates for C4I systems, ensuring they are up-to-date and secure using Kaspersky security solutions.}
+        \resumeItem{Worked on integrating Qradar with Kaspersky Security Center at C4i, enhancing overall cybersecurity capabilities.}
+        \resumeItem{Managed different services and features of Active Directory, using Kaspersky security solutions for comprehensive protection and smooth operations.}
+        \resumeItem{Mastered fundamental operations and troubleshooting of network devices, including switches, routers, and firewalls.}
+        \resumeItem{Proficiently operated and managed VMware ESXi, vSphere Client, and VMware Workstation.}
+        \resumeItem{Acquired expertise in Microsoft Server Manager, demonstrating proficiency in performing user role operations.}
+      \resumeItemListEnd
+    \resumeSubHeadingListEnd
+
+\resumeSubHeadingListStart
+    \resumeSubheading
+      {Network Engineer (PTCL)}{Jul. 2022 -- Sep. 2022}
+      {PTCL}{Rawalpindi, Pakistan}
+      \resumeItemListStart
+        \resumeItem{Successfully operated and maintained fiber optic installations, including OLT, optical splitter, and ONU deployment. Proficient in troubleshooting optical networks and leading team members to resolve connectivity issues. Possessing a strong foundation in ISP networking, including PSTN integration, exchange management, and efficient provider-to-user transmission.}
+      \resumeItemListEnd
+    \resumeSubHeadingListEnd
+
+\resumeSubHeadingListStart
+    \resumeSubheading
+      {Network Support Engineer}{Aug. 2021 -- Oct. 2021}
+      {PTCL}{Mardan, Pakistan}
+      \resumeItemListStart
+        \resumeItem{Enhanced business development and network efficiency through CRM and Nokia MOTIVE optimization. Successfully managed landline numbers and signal quality while gaining a comprehensive understanding of CRM from both user and provider perspectives.}
+      \resumeItemListEnd
+    \resumeSubHeadingListEnd
+
+%-----------PROJECTS-----------
+\section{Projects}
+  \resumeSubHeadingListStart
+    \resumeProjectHeading
+      {\textbf{Space-Air-Ground Integrated Networks} $|$ \emph{MATLAB}}{Nov. 2022 -- Present}
+      \resumeItemListStart
+        \resumeItem{Developed and solved resource allocation and computational task challenges in a SPACE-Air-Ground integrated network, designing a novel algorithm and implementing a MATLAB simulation. Gained expertise in optimization problem-solving, iterative processes, and wireless communication path loss models.}
+      \resumeItemListEnd
+    \resumeSubHeadingListEnd
+
+  \resumeSubHeadingListStart
+    \resumeProjectHeading
+      {\textbf{GUI Based Filter Design} $|$ \emph{MATLAB and DSP}}{Oct. 2022 -- Nov. 2022}
+      \resumeItemListStart
+        \resumeItem{Developed the project in MATLAB using Live Editor and GUI Designer.}
+        \resumeItem{Employed DSP principles to specify various filter types.}
+        \resumeItem{Added features of highly accurate LOW and HIGH pass filters for a wide range of frequencies.}
+        \resumeItem{Also Implemented Band stop and Bandpass filter functionalities.}
+      \resumeItemListEnd
+    \resumeSubHeadingListEnd
+
+  \resumeSubHeadingListStart
+    \resumeProjectHeading
+      {\textbf{Engineering Project Proposal} $|$ \emph{Microsoft Visio}}{Nov. 2022 -- Dec. 2022}
+      \resumeItemListStart
+        \resumeItem{Developed a proposal for automatic challenge system with all its activities and processes mentioned.}
+        \resumeItem{Done with the critical path analysis for the project using engineering management concepts and theories.}
+        \resumeItem{Used the concept of budgeting a crash cost the total amount for the proposed projects.}
+        \resumeItem{Designed the basic virtual architecture for the project with the help of different visual software.}
+        \resumeItem{Got a deep understanding of the iterative for best selecting.}
+        \resumeItem{Learned about different path loss models in wireless communication in real scenarios.}
+      \resumeItemListEnd
+    \resumeSubHeadingListEnd
+
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {University of Engineering and Technology Mardan}{Mardan, Pakistan}
+      {BSc Telecommunication Engineering}{Sep. 2019 -- Jul. 2023}
+      \resumeItemListStart
+        \resumeItem{Studied: Signal Processing, Telecommunication Systems, Microwave Links, Digital Signal Processing, Image Processing, Wireless Communication, RF Planning}
+        \resumeItem{CGPA: 3.21}
+      \resumeItemListEnd
+    \resumeSubHeadingListEnd
+
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Tufail Shaheed College}{Mardan, Pakistan}
+      {Intermediate Pre-Engineering}{Sept. 2017 -- Aug. 2019}
+      \resumeItemListStart
+        \resumeItem{Grade: A}
+      \resumeItemListEnd
+    \resumeSubHeadingListEnd
+
+%-----------PROGRAMMING SKILLS-----------
+\section{Technical Skills}
+  \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+      \textbf{Programming Languages}{: C, C++, Python (Academic Level), MATLAB} \\
+      \textbf{Networking}: CCNA Routing, Switching Configuration, Cyber security Essentials with networks troubleshooting. \\
+      \textbf{Soft Skills}: Microsoft Word, PowerPoint, entry-level Excel, with hands-on experience, Kaspersky Security Center VMware and MS SQL Server Management Studio \\
+      \textbf{Simulation}: CST Antenna Design, Multisim Circuit Design, CISCO Packet Tracer, and SIMULINK \\
+      \textbf{Hardware}: Hand-on Experience with Breadboard, DMM, Oscilloscope, and Different digital communication Boards for testing and implementing different modulation schemes.
+    }}
+  \end{itemize}
+
+\section{Additional Information}
+  \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+      \textbf{Languages}: English (Fluent), Urdu (Fluent), Hindi (Fluent), Pashto (Fluent) \\
+      \textbf{Interests}: Tech Innovation, Cyber Security, Psychological studies, Management, Photography, Comedy, Poetry, and Motivational Stories \\
+    }}
+  \end{itemize}
+
+\section{Memberships and Achievements}
+  \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+      \textbf{Member} of Entertainment and Arrangement Society at UET, Mardan. \\
+      \textbf{Member of} Ranra Welfare Organisation of Our Village \\
+      \textbf{Member of} Blood Donation Society Pakistan \\
+      \textbf{Member of} Million Smiles Foundation Pakistan \\
+      \textbf{Awarded} Volunteer of the Month in Blood Donation. \\
+      \textbf{Achieved} Essentials of Cyber Security Badge from CISCO
+    }}
+  \end{itemize}
+
+\end{document}

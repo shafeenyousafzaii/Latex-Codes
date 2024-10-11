@@ -1,0 +1,53 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+\title{Implementation of Apriori and FP-Growth Algorithms on Movie Dataset}
+\author{Muhammad Shafeen 22P-9278}
+\date{September 6, 2024}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+This document outlines the application of the Apriori and FP-Growth algorithms to analyze a dataset of movies. These algorithms are used to find frequent itemsets and association rules among movie genres or user ratings.
+\end{abstract}
+
+
+\section{Dataset Description}
+The dataset consists of movie titles, genres, ratings, and user information. It is sourced from a popular movie database (e.g., MovieLens, IMDb). Each record in the dataset represents a user's rating for a particular movie and includes metadata about the movie.
+
+\section{Methodology}
+
+\subsection{Preprocessing}
+Data preprocessing steps include:
+\begin{itemize}
+    \item Cleaning: Handling missing values and removing duplicates.
+    \item Transformation: Encoding genres and user ratings for algorithm compatibility.
+\end{itemize}
+
+\subsection{Apriori Algorithm}
+The Apriori algorithm was implemented to identify the most common combinations of genres that co-occur in the dataset. The steps include:
+\begin{enumerate}
+    \item Setting up the minimum support and confidence thresholds.
+    \item Finding all frequent itemsets.
+    \item Deriving strong association rules from these itemsets.
+\end{enumerate}
+
+\subsection{FP-Growth Algorithm}
+The FP-Growth algorithm was used to perform a similar analysis but is optimized to handle larger datasets more efficiently. The implementation steps are:
+\begin{enumerate}
+    \item Building the FP-tree from transactions.
+    \item Extracting frequent itemsets directly from the FP-tree.
+\end{enumerate}
+
+\section{Results}
+The results section would detail the frequent itemsets and association rules discovered by both algorithms, presented in tables and charts. Comparative analysis of performance metrics like runtime and memory usage between Apriori and FP-Growth would also be included.
+
+\section{Conclusion}
+Conclusions drawn from the analysis, implications for movie distributors, and suggestions for further research would be presented here.
+
+\end{document}

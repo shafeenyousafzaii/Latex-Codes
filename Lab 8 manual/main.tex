@@ -1,0 +1,159 @@
+\documentclass{article}
+\usepackage{listings}
+\usepackage{color}
+
+\title{File Handling Solutions in C/C++ for Linux}
+\author{Example Solutions and Q\&A}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section{File Descriptors and Streams}
+In Linux, there are three default file streams:
+\begin{itemize}
+    \item \textbf{Standard Input} (file descriptor: 0)
+    \item \textbf{Standard Output} (file descriptor: 1)
+    \item \textbf{Standard Error} (file descriptor: 2)
+\end{itemize}
+
+Other files that a process opens will be assigned file descriptors starting from 3 onward.
+
+\section{Opening a File}
+To open a file, use the \texttt{open()} system call. Here is an example that opens a file for writing:
+\begin{lstlisting}[language=C]
+#include <fcntl.h>
+#include <stdio.h>
+#include <sys/stat.h>
+#include <sys/types.h>
+#include <unistd.h>
+
+int main() {
+    int fd = open("example.txt", O_WRONLY | O_CREAT, 0666);
+    if (fd == -1) {
+        printf("Error opening file.\n");
+        return 1;
+    }
+    printf("File opened successfully. File descriptor: %d\n", fd);
+    close(fd);
+    return 0;
+}
+\end{lstlisting}
+In this example:
+\begin{itemize}
+    \item \texttt{O\_WRONLY} specifies the file is open for writing.
+    \item \texttt{O\_CREAT} creates the file if it does not exist.
+    \item \texttt{0666} sets the file permissions to allow read and write for all users.
+\end{itemize}
+
+\section{Closing a File}
+Files are closed using the \texttt{close()} function:
+\begin{lstlisting}[language=C]
+close(fd);
+\end{lstlisting}
+This releases the file descriptor and makes it available for other files.
+
+\section{Writing to a File}
+Use the \texttt{write()} function to write data to a file. Here is an example:
+\begin{lstlisting}[language=C]
+#include <fcntl.h>
+#include <stdio.h>
+#include <unistd.h>
+
+int main() {
+    int fd = open("example.txt", O_WRONLY | O_CREAT | O_APPEND, 0666);
+    if (fd == -1) {
+        printf("Error opening file.\n");
+        return 1;
+    }
+    const char *text = "Hello, World!\n";
+    write(fd, text, 13); // Write 13 bytes to the file
+    close(fd);
+    printf("Data written to file.\n");
+    return 0;
+}
+\end{lstlisting}
+Explanation:
+\begin{itemize}
+    \item The text "Hello, World!\n" is written to the file.
+    \item The file is opened with the \texttt{O\_APPEND} flag to append data.
+    \item \texttt{0666} sets file permissions to allow read and write for all users.
+\end{itemize}
+
+\section{Reading from a File}
+Here is an example to read data from a file using the \texttt{read()} system call:
+\begin{lstlisting}[language=C]
+#include <fcntl.h>
+#include <stdio.h>
+#include <unistd.h>
+
+int main() {
+    int fd = open("example.txt", O_RDONLY);
+    if (fd == -1) {
+        printf("Error opening file.\n");
+        return 1;
+    }
+    char buffer[100];
+    int bytesRead = read(fd, buffer, sizeof(buffer)-1);
+    if (bytesRead == -1) {
+        printf("Error reading file.\n");
+        close(fd);
+        return 1;
+    }
+    buffer[bytesRead] = '\0'; // Null-terminate the string
+    printf("Contents of file:\n%s\n", buffer);
+    close(fd);
+    return 0;
+}
+\end{lstlisting}
+Explanation:
+\begin{itemize}
+    \item The file is opened in read-only mode using \texttt{O\_RDONLY}.
+    \item Data is read into a buffer, and \texttt{buffer[bytesRead] = '\textbackslash0'} ensures it is null-terminated.
+    \item The program prints the file contents to the standard output.
+\end{itemize}
+
+\section{Q\&A}
+
+\subsection*{Q1: What is \texttt{0666} that is specified in the \texttt{open()} call? What does it mean?}
+
+The value \texttt{0666} specifies the file permissions when a file is created using the \texttt{open()} system call. In Unix-like operating systems, file permissions are set using a three-digit octal number, where each digit represents different permission sets:
+
+\begin{itemize}
+    \item The first digit (0) represents special permissions (not used here).
+    \item The second digit represents the owner's permissions.
+    \item The third digit represents the group's permissions.
+    \item The fourth digit represents permissions for others.
+\end{itemize}
+
+The permissions are set as follows:
+\begin{itemize}
+    \item \texttt{6} (read and write): The owner can read and write the file.
+    \item \texttt{6} (read and write): Members of the file's group can read and write the file.
+    \item \texttt{6} (read and write): All other users can read and write the file.
+\end{itemize}
+
+In this case, \texttt{0666} allows read and write permissions for all users, but no execute permissions.
+
+\subsection*{Q2: What is \texttt{O\_APPEND} doing in the same call? Run the program again and check its output.}
+
+The \texttt{O\_APPEND} flag used in the \texttt{open()} system call specifies that all writes to the file should be appended to the end of the file, rather than overwriting existing content. When this flag is set, the file pointer is moved to the end of the file before each write operation, ensuring that new data is added without altering the existing content.
+
+Running the program with \texttt{O\_APPEND} will append the new data to the end of the file, so if the program is executed multiple times, the file's contents will include repeated entries of the written data.
+
+\subsection*{Q3: Modify the following line in the code and then compile and run the program. What has happened?}
+
+From:
+\begin{lstlisting}[language=C]
+size_t length = strlen(timeStamp);
+\end{lstlisting}
+
+To:
+\begin{lstlisting}[language=C]
+size_t length = strlen(timeStamp) - 5;
+\end{lstlisting}
+
+By changing \texttt{strlen(timeStamp)} to \texttt{strlen(timeStamp) - 5}, the number of bytes written to the file is reduced by 5. This means that the last 5 characters of the \texttt{timeStamp} string will not be written to the file. If the original \texttt{timeStamp} includes a newline character at the end (as is common with time-related strings), this modification may result in a truncated or incomplete line of output in the file.
+
+\end{document}

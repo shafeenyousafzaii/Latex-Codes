@@ -1,0 +1,193 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{fancyhdr}
+\usepackage{geometry}
+\usepackage{parskip}
+\usepackage{tcolorbox}
+\usepackage{paracol}
+\tcbuselibrary{breakable, listings}
+
+% Page settings
+\geometry{margin=1in}
+\setlength{\parindent}{0pt}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\includegraphics[width=1.5cm]{logo.png}}
+\fancyhead[C]{\textbf{National University of Computer and Emerging Sciences}}
+
+% Adjust header spacing
+\setlength{\headheight}{47.02646pt}
+\addtolength{\topmargin}{-27.02646pt}
+
+% Student information
+\newcommand{\studentinfo}{
+    \textbf{Student Name:} \underline{\hspace{4cm}} \hspace{0.5cm}
+    \textbf{Roll No:} \underline{\hspace{3cm}} \hspace{0.5cm} \\
+    \textbf{Section:} \underline{\hspace{2cm}} \\
+}
+
+\begin{document}
+
+% Title
+\begin{center}
+    {\large \textbf{Course: Programming Fundamentals}} \\
+    \vspace{0.2cm}
+    {\Large \textbf{Quiz 3}} \\
+\end{center}
+
+\vspace{0.5cm}
+
+% Student information section
+\studentinfo
+
+\vspace{0.25cm}
+\textbf{Total Time:} 15 minutes \\
+\textbf{Time Distribution:} Q1 - 10 minutes, Q2 (Output) - 3 minutes - Rechecking - 2 minutes
+\vspace{0.25cm}
+
+ \textbf{(CLO-2)}
+% Question 1
+\textbf{Q1: Write a C++ program that takes two inputs from the user:        
+\\one representing the month and the other representing the day. The program should validate the day based on the rules for the number of days in each month and consider leap years if the selected month is February.} \hfill 
+\textbf{(10 marks)}  
+
+\begin{enumerate}
+\item \textbf{Month Input:}
+\begin{itemize}
+\item The first input representing the month (1 for January, 2 for February, \ldots etc.).
+\end{itemize}
+\item \textbf{Day Input:}
+\begin{itemize}
+    \item The second input representing the day of the month.
+\end{itemize}
+
+\item \textbf{Leap Year Check:}
+\begin{itemize}
+    \item If the user enter 2 (month 2 February), the program should prompt for the year to determine if it's a leap year.
+    \item Leap Year Rule: A year is a leap year if it is divisible by 4. However, years divisible by 100 are not leap years unless they are also divisible by 400.
+    \item In a leap year, allow the day to be between 1 and 29; otherwise, restrict the day to be between 1 and 28.
+\end{itemize}
+
+\item \textbf{Month Validation:}
+\begin{itemize}
+    \item Months with 31 days: January, March, May, July, August, October, December (allow days between 1 and 31).
+    \item Months with 30 days: April, June, September, November (allow days between 1 and 30).
+\end{itemize}
+
+\item \textbf{Invalid Input Handling:}
+\begin{itemize}
+    \item If the month input is not valid (e.g., 13), or the day exceeds the allowed range for that month (e.g., day 32 in January), print "Invalid Date."
+\end{itemize}
+\end{enumerate}
+\textbf{Example outputs:}
+
+\begin{verbatim}
+Enter the month (1-12): 4          Enter the month (1-12): 2
+Enter the day: 31                  Enter the day: 28
+Invalid Date                       Enter the year (for February): 2023
+                                   Valid Date
+\end{verbatim}
+
+\textbf{Write your answer here:}
+\begin{tcolorbox}[colframe=black, colback=white, width=\textwidth, height=23cm, valign=center]
+\end{tcolorbox}
+
+\vspace{1.5cm}
+
+% Question 2
+\textbf{Q2: Write the output of the following code snippets:} \hfill \textbf{(3 marks)} \textbf{(CLO-2)}
+
+\begin{minipage}[t]{0.48\textwidth}
+\textbf{a)}
+\begin{verbatim}
+#include <stdio.h>
+
+int main() {
+    int x = 2;
+    switch(x) {
+        case 1:
+        case 2:
+            printf("A");
+        case 3:
+            printf("B");
+            break;
+        case 4:
+            printf("C");
+        default:
+            printf("D");
+    }
+    return 0;
+}
+\end{verbatim}
+
+\textbf{Output:}
+\begin{tcolorbox}[colframe=black, colback=white, width=\textwidth, height=13cm, valign=center]
+\end{tcolorbox}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.48\textwidth}
+\textbf{b)}
+\begin{verbatim}
+#include <stdio.h>
+
+int main() {
+  char ch = '1';
+  switch(ch) {
+      case 1:
+          printf("First Case\n");
+          break;
+      case '1':
+          printf("Second Case\n");
+          break;
+      default:
+          printf("Default Case\n");
+    }
+    return 0;
+}
+
+#include <stdio.h>
+int main() {
+    int x = 100;
+    switch (x) {
+        case 100:
+            printf("Case 100\n");
+            break;
+        case 'd':
+            printf("Case 'd'\n");
+            break;
+        default:
+          printf("Default Case\n");
+    }
+    return 0;
+}
+\end{verbatim}
+
+\textbf{Output:}
+\begin{tcolorbox}[colframe=black, colback=white, width=\textwidth, height=5.810cm, valign=center]
+\end{tcolorbox}
+\end{minipage}
+
+\vspace{0.5cm} % Add some vertical space before the continued output
+
+\begin{minipage}[t]{0.48\textwidth}
+\textbf{Continued Output :}
+\begin{tcolorbox}[colframe=black, colback=white, width=\textwidth, height=20cm, valign=center]
+\end{tcolorbox}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.48\textwidth}
+\textbf{Continued Output :}
+\begin{tcolorbox}[colframe=black, colback=white, width=\textwidth, height=20cm, valign=center]
+\end{tcolorbox}
+\end{minipage}
+\vfill
+\centering
+{\Huge \textbf{The End!}}
+
+
+% \textbf{Output (Continued):}
+% \begin{tcolorbox}[colframe=black, colback=white, width=\textwidth, height=4cm, valign=center]
+% \end{tcolorbox}
+
+% \newpage
+
+\end{document}

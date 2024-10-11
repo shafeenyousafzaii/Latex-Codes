@@ -1,0 +1,108 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{enumitem}
+\usepackage{hyperref}
+
+\title{Summary of Chapter 1: Operating System Concepts}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section{Introduction}
+This chapter provides an overview of operating systems (OS), explaining what they do and their importance in managing hardware and software resources.
+
+\section{Objectives}
+The key goals of this chapter are:
+\begin{itemize}
+    \item To describe the organization of computer systems.
+    \item Provide a high-level tour of major OS components.
+    \item Explore various computing environments.
+    \item Introduce open-source OS.
+\end{itemize}
+
+\section{What is an Operating System?}
+An OS is an intermediary between users and computer hardware. The main goals are:
+\begin{itemize}
+    \item To execute user programs.
+    \item Make the system convenient for users.
+    \item Use hardware efficiently.
+\end{itemize}
+
+\section{Computer System Structure}
+A computer system has four main components:
+\begin{itemize}
+    \item \textbf{Hardware}: CPU, memory, I/O devices.
+    \item \textbf{Operating System}: Manages hardware.
+    \item \textbf{Application Programs}: Define how resources are used.
+    \item \textbf{Users}: Individuals or machines.
+\end{itemize}
+
+\section{What Operating Systems Do}
+The OS acts as a resource allocator and control program, optimizing hardware use and managing user program execution.
+
+\section{Operating System Definition}
+The OS has no universal definition, but it is generally described as:
+\begin{itemize}
+    \item \textbf{Kernel}: A program that runs at all times, managing hardware.
+    \item \textbf{System programs}: Essential programs that accompany the OS.
+    \item \textbf{Application programs}: Installed by users for tasks like word processing or web browsing.
+\end{itemize}
+
+\section{Computer Startup}
+The \textit{bootstrap program} runs at startup, initializing the system and loading the OS kernel.
+
+\section{Computer-System Organization}
+Multiple CPUs and device controllers share memory, enabling concurrent execution and efficient resource management.
+
+\section{Interrupts and Handling}
+Interrupts transfer control to the OS to handle device or software signals. There are mechanisms like \textit{polling} and \textit{vectored interrupts} to manage various types of interruptions.
+
+\section{I/O Structure and Storage}
+\begin{itemize}
+    \item \textbf{I/O Structure}: Devices operate concurrently, managed through interrupts. Data is moved via device controllers and the OS handles I/O through system calls.
+    \item \textbf{Storage Structure}: Main memory is volatile, while secondary storage (e.g., hard disks) provides persistent data storage.
+\end{itemize}
+
+\section{Storage Hierarchy}
+The storage hierarchy is defined by speed, cost, and volatility, with caching being a key principle to optimize access times.
+
+\section{Direct Memory Access (DMA)}
+Direct memory access (DMA) allows devices to transfer data to memory without CPU intervention, improving efficiency.
+
+\section{Computer-System Architecture}
+Most systems use multiprocessors, where multiple CPUs increase throughput, reliability, and fault tolerance. Symmetric multiprocessing (SMP) allows processors to share tasks equally.
+
+\section{Types of Operating Systems}
+Types include:
+\begin{itemize}
+    \item \textbf{Batch systems}
+    \item \textbf{Multi-programmed OS}
+    \item \textbf{Real-time OS}
+    \item \textbf{Embedded OS}
+\end{itemize}
+
+Distributed and clustered systems enhance performance and availability through cooperation between multiple machines.
+
+\section{OS Operations}
+OS operations are driven by interrupts. Modern OSes provide \textbf{dual-mode operations} (user and kernel mode) to protect the system from misuse.
+
+\section{Process and Memory Management}
+\begin{itemize}
+    \item \textbf{Process Management}: OS handles process creation, synchronization, and communication.
+    \item \textbf{Memory Management}: OS keeps track of memory use and manages allocation and deallocation.
+\end{itemize}
+
+\section{Storage Management}
+\begin{itemize}
+    \item \textbf{File Systems}: OS provides a logical view of data through files, which are organized into directories and controlled via access permissions.
+\end{itemize}
+
+\section{I/O Subsystem}
+The OS abstracts hardware peculiarities, managing buffering, caching, and spooling to ensure efficient I/O handling.
+
+\section{Protection and Security}
+The OS ensures \textbf{protection} (access control) and \textbf{security} (defense against attacks). User IDs and group IDs manage access rights.
+
+\end{document}

@@ -1,0 +1,58 @@
+\documentclass[12pt]{letter}
+\usepackage[margin=1in]{geometry}
+\usepackage{ragged2e}
+
+\makeatletter
+\renewcommand*{\opening}[1]{\ifx\@empty\fromaddress
+  \thispagestyle{firstpage}%
+  {\raggedright\@date\par}%
+  \else
+  \thispagestyle{empty}%
+  {\raggedright\begin{tabular}{@{}l@{}}\ignorespaces
+    \fromaddress \\*[2\parskip]%
+    \@date \end{tabular}\par}%
+  \fi
+  \vspace{2\parskip}%
+  {\raggedright\toname \\ \toaddress \par}%
+  \vspace{2\parskip}%
+  #1\par\nobreak}
+
+\renewcommand{\closing}[1]{\par\nobreak\vspace{\parskip}%
+  \stopbreaks
+  \noindent
+  \parbox{\textwidth}{\raggedright
+    \ignorespaces #1\\[4\medskipamount]%
+    \ifx\@empty\fromsig
+      \fromname
+    \else \fromsig \fi\strut}%
+  \par}
+
+\renewcommand{\ps}{\par\raggedright\nobreak\noindent\hspace{0pt}}
+
+\makeatother
+
+\signature{Tazmeen Afroz}
+\address{Tazmeen Afroz \\ AI Engineer \\ Peshawar, Pakistan}
+\date{October 9, 2024}
+
+\begin{document}
+
+\begin{letter}{Mr. Zahid Riaz \\ Hiring Manager \\ Tech Innovators \\ Islamabad, Pakistan}
+
+\opening{Dear Hiring Manager,}
+I am writing to apply for the AI Engineer position at Tech Innovators. With a strong background in Artificial Intelligence and Machine Learning, I am eager to contribute my skills to your team. Tech Innovators’ leadership in advancing AI technology aligns with my experience and career goals.
+
+At the National University of Computer and Emerging Sciences, I gained comprehensive knowledge in machine learning, deep learning frameworks, and natural language processing (NLP). Through hands-on internships, I developed AI models for real-world applications and enhanced my technical proficiency in Python, SQL, and C++. These experiences have prepared me to design and implement robust AI solutions in a fast-paced environment.
+
+My previous internship at Tech Innovators provided direct experience in AI research and development, allowing me to contribute to critical projects while collaborating with skilled professionals. This exposure has sharpened my problem-solving abilities and deepened my understanding of the industry, which I am eager to bring to this role.
+
+I am confident that my technical expertise and practical experience would make me a strong addition to your team. I would welcome the opportunity to discuss how my background aligns with Tech Innovators' goals. Please feel free to contact me at p229252@pwr.nu.edu.pk to arrange an interview.
+
+Thank you for your time and consideration. I look forward to the possibility of contributing to your team.
+\closing{Sincerely,}
+
+\ps{Enclosures: Resume}
+
+\end{letter}
+
+\end{document}
